@@ -1,23 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
+void wczytywanie_danych(float *a1, float *a2, float *b1, float *b2, float *c1, float *c2);
+
 int main() {
     float a1, a2, b1, b2, c1, c2, x, y, w, wx, wy;
-
-// pierwsze równanie w postaci: a1x + b1y = c1
-    printf("podaj współczynnik a1 równania a1x + b1y = a1: ");
-    scanf("%f", &a1);
-    printf("podaj współczynnik b1 równania a1x + b1y = b1: ");
-    scanf("%f", &b1);
-    printf("podaj współczynnik c1 równania a1x + b1y = c1: ");
-    scanf("%f", &c1);
-    // \ndrugie równanie w postaci: a2x + b2y = c2
-    printf("podaj współczynnik a2 równania a2x + b2y = a2: ");
-    scanf("%f", &a2);
-    printf("podaj współczynnik b2 równania a2x + b2y = b2: ");
-    scanf("%f", &b2);
-    printf("podaj współczynnik c2 równania a2x + b2y = b2: ");
-    scanf("%f", &c2);
+    wczytywanie_danych(&a1, &a2, &b1, &b2, &c1, &c2);
 
     w =  a1 * b2 - b1 * a2;
     wx = c1 * b2 - b1 * c2;
@@ -25,19 +13,35 @@ int main() {
 
     if ((w==0) && (wy==0) && (wx==0))
     {
-        printf("układ nieoznaczony");
+        printf("\nukład nieoznaczony");
             }
             if ((w==0) && (wy!=0) && (wx!=0))
             {
-                printf("układ sprzeczny");
+                printf("\nukład sprzeczny");
             }
 if (w!=0)
 {
     x=(wx/w);
     y=(wy/w);
-    printf("układ oznaczony x= %i", x);
+    printf("\nukład oznaczony x= %i", x);
     printf("%i", y);
 }
 
     return 0;
+}
+
+void wczytywanie_danych(float *a1, float *a2, float *b1, float *b2, float *c1, float *c2) {// pierwsze równanie w postaci: a1x + b1y = c1
+    printf("podaj a1: ");
+    scanf("%lf", a1);
+    printf("podaj b1: ");
+    scanf("%lf", b1);
+    printf("podaj c1: ");
+    scanf("%lf", c1);
+    // \ndrugie równanie w postaci: a2x + b2y = c2
+    printf("podaj a2: ");
+    scanf("%lf", a2);
+    printf("podaj b2: ");
+    scanf("%lf", b2);
+    printf("podaj c2: ");
+    scanf("%lf", c2);
 }
